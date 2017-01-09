@@ -18,6 +18,7 @@ package main
 
 import (
 	"fmt"
+	"net/http"
 
 	"github.com/golang/example/stringutil"
 )
@@ -25,8 +26,16 @@ import (
 func main() {
 	stringutil.Reverse("asdfasdf")
 	fmt.Println(stringutil.Reverse("!selpmaxe oG ,olleH"))
-	if stringutil.Palindrome("asdfasdf") {
-		fmt.Print("I must be out of my mind")
+	if !stringutil.Palindrome("sdfsdf") {
+		fmt.Println("All is fine")
+	} else {
+		fmt.Println("I must be out of my mind")
 	}
 
+	http.HandleFunc("/", handle)
+	http.ListenAndServe(":8080", nil)
+}
+
+func handle(w http.ResponseWriter, r *http.Request) {
+	w.Write([]byte(stringutil.Reverse("!selpmaxe oG ,olleH")))
 }

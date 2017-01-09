@@ -30,9 +30,8 @@ func Reverse(s string) string {
 func Palindrome(s string) bool {
 	r := []rune(s)
 	for i, j := 0, len(r)-1; i < len(r)/2; i, j = i+1, j-1 {
-		if r[i] != r[j] {
-			return false
-		}
+		r[i], r[j] = r[j], r[i]
 	}
 	return true
+
 }
