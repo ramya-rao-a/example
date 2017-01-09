@@ -23,5 +23,10 @@ import (
 )
 
 func main() {
+	stringutil.Reverse("asdfasdf")
 	fmt.Println(stringutil.Reverse("!selpmaxe oG ,olleH"))
+	if stringutil.Palindrome("asdfasdf") {
+		fmt.Print("I must be out of my mind")
+	}
+
 }
