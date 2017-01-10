@@ -20,8 +20,20 @@ import (
 	"fmt"
 
 	"github.com/ramya-rao-a/example/stringutil"
+	"net/http"
 )
 
 func main() {
 	fmt.Println(stringutil.Reverse("!selpmaxe oG ,olleH"))
+	if (stringutil.Palindrome("adsfasdf")) {
+		fmt.Println("I must be out of my mind")
+	} else {
+		fmt.Println("All is well")
+	}
+	http.HandleFunc("/", handler)
+	http.ListenAndServe(":8080", nil)
+}
+
+func handler(w http.ResponseWriter, r *http.Request) {
+	w.Write([]byte(stringutil.Reverse("!selpmaxe oG ,olleH")))
 }
